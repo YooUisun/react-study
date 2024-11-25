@@ -5,6 +5,7 @@ import State02 from "./components/State02";
 import Props01 from "./components/Props01";
 import Box from "./components/Box";
 import Practice001 from "./practice/Practice001";
+import Props02 from "./components/Props02";
 
 function App() {
   //return <basic01/>;
@@ -12,7 +13,8 @@ function App() {
   // return <Export01/>;
   // return <State02/>;
   // return<Props01/>;
-  return <Practice001/>;
+  // return <Practice001/>;
+  return <Props02/>;
 }
 
 export default App;

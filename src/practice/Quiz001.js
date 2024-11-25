@@ -1,18 +1,20 @@
-import "./App.css";
-import State01 from "./components/State01"; // 중괄호 없이 가져오기!
-import Export01 from './components/Export01';
-import State02 from "./components/State02";
-import Props01 from "./components/Props01";
-import Box from "./components/Box";
-import Practice001 from "./practice/Practice001";
+import React, { useState } from "react";
+import "./Quiz001.css";
 
-function App() {
-  //return <basic01/>;
-  // return <State01 />;
-  // return <Export01/>;
-  // return <State02/>;
-  // return<Props01/>;
-  return <Practice001/>;
+function Quiz001() {
+
+  let [count, setCount] = useState(0);
+
+  return (
+      <div>
+        <button onClick={()=>{
+          console.log('버튼눌림');
+          setCount(count+2);
+          console.log(count);
+      }}>짝수출력</button>
+        <span className= 'font=red' style={{color:'red'}}>{count}</span>
+      </div>
+  );
 }
 
-export default App;
+export default Quiz001;
