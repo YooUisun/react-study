@@ -18,6 +18,8 @@ function NewsBlog() {
 
     let [modalFlag, setModalFlag] = useState(false);
 
+    let [selectedTitle, setSelectedTitle] = useState('');
+
     return (
         <div>
             <div className='black-nav'>
@@ -29,14 +31,16 @@ function NewsBlog() {
                 news.map((item, index) => {
                     return (
                         <div className="post-list">
-                            <h4 onClick={() => {
-                                setModalFlag(!modalFlag);
+                            <h4 onClick={() => {    //제목 클릭
+                                setModalFlag(!modalFlag);   //모달창이 on/off 전환
+                                //어떤 뉴스를 눌렀는지! --> 저장
+                                setSelectedTitle('선택한 제목');
                             }}>{news[index]} <span onClick={(event) => {
                                 event.stopPropagation(); //이벤트 추가 전달 stop
                                 let temp = [...likeCount];
                                 temp[index]++;
                                 setLikeCount(temp);
-                            }}>❤</span> {likeCount[index]} </h4>
+                            }}>♥</span> {likeCount[index]} </h4>
                             <p>내용 무</p>
                         </div>
                     )
@@ -49,7 +53,7 @@ function NewsBlog() {
                 setNews(temp);
             }}>제목 변경</button>
             {
-                modalFlag == true ? <Modal news={news} setNews={setNews} bgColor={'lightcyan'} /> : null
+                modalFlag == true ? <Modal title={selectedTitle}news={news} setNews={setNews} bgColor={'lightcyan'} /> : null
             }
         </div>
     )
