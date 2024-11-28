@@ -7,8 +7,10 @@ import Box from "./components/Box";
 import Practice001 from "./practice/Practice001";
 import Props02 from "./components/Props02";
 import Quiz003 from "./practice/Quiz003";
-import Practice002 from "./practice/Practice002";
 import NewsBlog from "./newsblog/NewsBlog";
+import Practice002 from "./practice/Practice002";
+import Quiz004 from "./practice/Quiz004";
+
 
 
 function App() {
@@ -21,7 +23,10 @@ function App() {
   // return <Props02/>;
   // return <Quiz003/>;
   // return <Practice002/>;
-  return <NewsBlog/>;
+  // return <NewsBlog/>;
+  // return <Practice002/>;
+  return <Quiz004/>;
+
 }
 
 export default App;
