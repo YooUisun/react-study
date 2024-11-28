@@ -12,8 +12,14 @@ import food1 from './food1.jpg';
 import food2 from './food2.jpg';
 import food3 from './food3.jpg';
 
+import foodsData from '../data/foodsData.js';
+import { useState } from 'react';
+import FoodCard from './FoodCard.js';
 
 function FoodMarket() {
+
+        let [foods, setFoods] = useState(foodsData);
+
     return (
         <div>
             <Navbar bg="light" data-bs-theme="light">
@@ -27,50 +33,72 @@ function FoodMarket() {
                 </Container>
             </Navbar>
 
-            {/* CSS 이미지 배경
-            js 에서는 import 후 사용
+            {/* 
+            1.CSS 이미지 배경
+
+            2.js 에서는 import 후 사용
             <img src={banner_bg}/>
+
+            3. public 폴더에 저장후 사용
+            img src={'/food1.jpg'}
+            img src={process.env.PUBLIC_URL + '/food1.jpg'}<< 이렇게 하는걸 권장한다.
+            
+            package.json
+            "homepage":"/newurlpath" 상세경로
+
              */}
             <div className="main-bg" style={{ backgroundImage: 'url(' + banner_bg + ')'}}></div>
+            
+            <Container>
+                <Row>
+                    {
+                        foods.map((food, index) => {
 
+                            return (
+                                <Col md={4} sm={2} key={index}>
+                                <FoodCard food={food} foods={foods} foodsData={foodsData} index={index}/>
+                            </Col>
+                            )
+                        })
+                    }
+                </Row>
+            </Container>
+{/* 
             <Container>
                 <Row>
                     <Col md={4} sm={2}>    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={food1} />
+                        <Card.Img variant="top" src={process.env.PUBLIC_URL + '/image/food1.jpg'} />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            <Card.Title>{foods[0].title}</Card.Title>
+                            <Card.Text>{foods[0].content}</Card.Text>
+                            <Card.Text>{foods[0].price}</Card.Text>
+                            <Button variant="primary">상세보기</Button>
                         </Card.Body>
-                    </Card></Col>
+                        </Card>
+                    </Col>
 
-                    <Col md={4} sm={2}>    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={food2} />
+                    <Col md={4} sm={2}>
+                        <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={process.env.PUBLIC_URL + '/image/food2.jpg'} />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </Card.Text>
+                        <Card.Title>{foods[1].title}</Card.Title>
+                            <Card.Text>{foods[1].content}</Card.Text>
+                            <Card.Text>{foods[1].price}</Card.Text>
+                            <Button variant="primary">상세보기</Button>
                             <Button variant="primary">Go somewhere</Button>
                         </Card.Body>
                     </Card></Col>
                     <Col md={4} sm={8}>    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={food3} />
+                        <Card.Img variant="top" src={process.env.PUBLIC_URL + '/image/food3.jpg'} />
                         <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the
-                                bulk of the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            <Card.Title>{foods[2].title}</Card.Title>
+                            <Card.Text>{foods[2].content}</Card.Text>
+                            <Card.Text>{foods[2].price}</Card.Text>
+                            <Button variant="primary">상세보기</Button>
                         </Card.Body>
                     </Card></Col>
                 </Row>
-            </Container>
+            </Container> */}
         </div>
     );
 }
