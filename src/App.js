@@ -11,7 +11,7 @@ import NewsBlog from './newsblog/NewsBlog';
 import Quiz003 from './practice/Quiz003';
 import Practice002 from './practice/Practice002';
 import Quiz004 from './practice/Quiz004';
-import FoodMarket from './FoodMarket/FoodMarket';
+import FoodMarket from './foodmarket/FoodMarket';
 
 function App() {
 
